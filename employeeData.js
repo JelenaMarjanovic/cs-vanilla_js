@@ -62,14 +62,28 @@ function sortInDescending() {
   console.log(employees);
 }
 
+// Calculate Average Salary
+function averageSalary() {
+  const total = employees.reduce(
+    (acc, employee) => (acc += employee.salary),
+    0
+  );
+
+  const average = total / employees.length;
+
+  console.log(average);
+}
+
 // Get all needed DOM elements
 const addBtn = document.getElementById("add_employee");
 const grossBtn = document.getElementById("gross_income");
 const highSalaryBtn = document.getElementById("six_digits");
 const sortBtn = document.getElementById("sort_descending");
+const averageBtn = document.getElementById("average_salary");
 
 // Buttons' event listeners
 addBtn.addEventListener("click", fetchEmployee);
 grossBtn.addEventListener("click", grossIncome);
 highSalaryBtn.addEventListener("click", sixDigitsSalaries);
 sortBtn.addEventListener("click", sortInDescending);
+averageBtn.addEventListener("click", averageSalary);
