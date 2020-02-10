@@ -55,12 +55,21 @@ function sixDigitsSalaries() {
   console.log(employees);
 }
 
+// Sort employees by salary in descending order
+function sortInDescending() {
+  employees = employees.sort((e1, e2) => e2.salary - e1.salary);
+
+  console.log(employees);
+}
+
 // Get all needed DOM elements
 const addBtn = document.getElementById("add_employee");
 const grossBtn = document.getElementById("gross_income");
 const highSalaryBtn = document.getElementById("six_digits");
+const sortBtn = document.getElementById("sort_descending");
 
 // Buttons' event listeners
 addBtn.addEventListener("click", fetchEmployee);
 grossBtn.addEventListener("click", grossIncome);
 highSalaryBtn.addEventListener("click", sixDigitsSalaries);
+sortBtn.addEventListener("click", sortInDescending);
