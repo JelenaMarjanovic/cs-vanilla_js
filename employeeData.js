@@ -48,10 +48,19 @@ function grossIncome() {
   console.log(employees);
 }
 
+// Show only salaries higher than 100,000.00 RSD
+function sixDigitsSalaries() {
+  employees = employees.filter(employee => employee.salary >= 100000.0);
+
+  console.log(employees);
+}
+
 // Get all needed DOM elements
 const addBtn = document.getElementById("add_employee");
 const grossBtn = document.getElementById("gross_income");
+const highSalaryBtn = document.getElementById("six_digits");
 
 // Buttons' event listeners
 addBtn.addEventListener("click", fetchEmployee);
 grossBtn.addEventListener("click", grossIncome);
+highSalaryBtn.addEventListener("click", sixDigitsSalaries);
