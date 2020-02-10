@@ -6,7 +6,7 @@ let employees = [];
 
 // Invoke API calls, e.g. five times
 for (let i = 0; i < 5; i++) {
-  fetchEmployee(API_PATH);
+  fetchEmployee();
 }
 
 // Generate a random salary in the given range rounded to 2 decimals
@@ -15,8 +15,8 @@ function randomSalary(min, max) {
 }
 
 // Fetch Random People using Async/Await
-async function fetchEmployee(path) {
-  const result = await fetch(path);
+async function fetchEmployee() {
+  const result = await fetch(API_PATH);
 
   const data = await result.json();
 
@@ -27,5 +27,16 @@ async function fetchEmployee(path) {
     salary: randomSalary(50000, 500000)
   };
 
+  addEmployee(employee);
+}
+
+// Add new employee
+function addEmployee(employee) {
   employees.push(employee);
 }
+
+// Get all needed DOM elements
+const addBtn = document.getElementById("add_employee");
+
+// Buttons' event listeners
+addBtn.addEventListener("click", fetchEmployee);
