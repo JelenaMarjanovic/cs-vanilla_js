@@ -78,7 +78,7 @@ function sortInDescending() {
   updateDOM();
 }
 
-// Calculate Average Salary
+// Calculate average salary
 function averageSalary() {
   const total = employees.reduce(
     (acc, employee) => (acc += employee.salary),
@@ -87,7 +87,9 @@ function averageSalary() {
 
   const average = total / employees.length;
 
-  console.log(average);
+  const avgSalary = document.createElement("div");
+  avgSalary.innerHTML = `<h3><strong>Average salary: ${average}</strong></h3>`;
+  mainContent.appendChild(avgSalary);
 }
 
 // Get all needed DOM elements
