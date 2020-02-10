@@ -27,5 +27,5 @@ async function fetchEmployee(path) {
     salary: randomSalary(50000, 500000)
   };
 
-  console.log(employee);
+  employees.push(employee);
 }
