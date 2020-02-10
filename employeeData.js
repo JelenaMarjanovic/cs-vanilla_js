@@ -28,12 +28,28 @@ async function fetchEmployee() {
   };
 
   addEmployee(employee);
-  console.log(employees);
+}
+
+// Update DOM
+function updateDOM(data = employees) {
+  // Clear previous content
+  mainContent.innerHTML = "<h2>Employee Salary</h2>";
+
+  // Show updated content
+  data.forEach(employee => {
+    const el = document.createElement("div");
+    el.classList.add("employee");
+    el.innerHTML = `${employee.name} ${employee.salary}`;
+
+    mainContent.appendChild(el);
+  });
 }
 
 // Add new employee
 function addEmployee(employee) {
   employees.push(employee);
+
+  updateDOM();
 }
 
 // Calculate gross income - approximately with coefficient 1.65
@@ -45,21 +61,21 @@ function grossIncome() {
     };
   });
 
-  console.log(employees);
+  updateDOM();
 }
 
 // Show only salaries higher than 100,000.00 RSD
 function sixDigitsSalaries() {
   employees = employees.filter(employee => employee.salary >= 100000.0);
 
-  console.log(employees);
+  updateDOM();
 }
 
 // Sort employees by salary in descending order
 function sortInDescending() {
   employees = employees.sort((e1, e2) => e2.salary - e1.salary);
 
-  console.log(employees);
+  updateDOM();
 }
 
 // Calculate Average Salary
@@ -80,6 +96,7 @@ const grossBtn = document.getElementById("gross_income");
 const highSalaryBtn = document.getElementById("six_digits");
 const sortBtn = document.getElementById("sort_descending");
 const averageBtn = document.getElementById("average_salary");
+const mainContent = document.getElementById("content");
 
 // Buttons' event listeners
 addBtn.addEventListener("click", fetchEmployee);
