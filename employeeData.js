@@ -38,13 +38,15 @@ async function fetchEmployee() {
 // Update DOM
 function updateDOM(data = employees) {
   // Clear previous content
-  mainContent.innerHTML = "<h2>Employee Salary</h2>";
+  mainContent.innerHTML = "<h2><span>Employee</span> <span>Salary</span></h2>";
 
   // Show updated content
   data.forEach(employee => {
     const el = document.createElement("div");
     el.classList.add("employee");
-    el.innerHTML = `${employee.name} ${formatAsCurrency(employee.salary)}`;
+    el.innerHTML = `<span>${employee.name}</span> <span>${formatAsCurrency(
+      employee.salary
+    )}</span>`;
 
     mainContent.appendChild(el);
   });
@@ -93,9 +95,9 @@ function averageSalary() {
   const average = total / employees.length;
 
   const avgSalary = document.createElement("div");
-  avgSalary.innerHTML = `<h3><strong>Average salary: ${formatAsCurrency(
+  avgSalary.innerHTML = `<h3><span>Average salary:</span> <span>${formatAsCurrency(
     average
-  )}</strong></h3>`;
+  )}</span></h3>`;
   mainContent.appendChild(avgSalary);
 }
 

@@ -1,0 +1,88 @@
+* {
+  /* padding: 0; */
+  /* margin: 0; */
+  box-sizing: border-box;
+}
+
+/* html {
+  font-size: 1em;
+} */
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 20px;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+.container {
+  display: flex;
+  max-width: 100%;
+  width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+aside {
+  width: 300px;
+  padding: 10px 20px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  border: solid 3px darkslateblue;
+  border-radius: 10px;
+  background-color: darkblue;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+main {
+  border-left: 5px solid darkblue;
+  flex: 1;
+  padding: 10px 20px;
+}
+
+
+h2 {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2.5px solid darkblue;
+  color: darkblue;
+  font-weight: 300;
+  margin: 0 0 20px;
+  padding-bottom: 10px;
+}
+
+h3 {
+  display: flex;
+  justify-content: space-between;
+  border-top: 2.5px solid darkblue;
+  background-color: lightsteelblue;
+  color: darkblue;
+  font-weight: bold;
+  margin: 20px 0 0;
+  padding: 10px;
+}
+
+.employee {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+span {
+  display: block;
+}
