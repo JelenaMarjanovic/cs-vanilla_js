@@ -14,6 +14,11 @@ function randomSalary(min, max) {
   return Math.random() * (max - min) + min;
 }
 
+// Format salary as currency string
+function formatAsCurrency(amount) {
+  return `${amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")} RSD`;
+}
+
 // Fetch Random People using Async/Await
 async function fetchEmployee() {
   const result = await fetch(API_PATH);
@@ -39,7 +44,7 @@ function updateDOM(data = employees) {
   data.forEach(employee => {
     const el = document.createElement("div");
     el.classList.add("employee");
-    el.innerHTML = `${employee.name} ${employee.salary}`;
+    el.innerHTML = `${employee.name} ${formatAsCurrency(employee.salary)}`;
 
     mainContent.appendChild(el);
   });
@@ -88,7 +93,9 @@ function averageSalary() {
   const average = total / employees.length;
 
   const avgSalary = document.createElement("div");
-  avgSalary.innerHTML = `<h3><strong>Average salary: ${average}</strong></h3>`;
+  avgSalary.innerHTML = `<h3><strong>Average salary: ${formatAsCurrency(
+    average
+  )}</strong></h3>`;
   mainContent.appendChild(avgSalary);
 }
 
