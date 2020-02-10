@@ -11,7 +11,7 @@ for (let i = 0; i < 5; i++) {
 
 // Generate a random salary in the given range rounded to 2 decimals
 function randomSalary(min, max) {
-  return (Math.random() * (max - min) + min).toFixed(2);
+  return Math.random() * (max - min) + min;
 }
 
 // Fetch Random People using Async/Await
@@ -28,6 +28,7 @@ async function fetchEmployee() {
   };
 
   addEmployee(employee);
+  console.log(employees);
 }
 
 // Add new employee
@@ -35,8 +36,22 @@ function addEmployee(employee) {
   employees.push(employee);
 }
 
+// Calculate gross income - approximately with coefficient 1.65
+function grossIncome() {
+  employees = employees.map(employee => {
+    return {
+      ...employee,
+      salary: employee.salary * 1.65
+    };
+  });
+
+  console.log(employees);
+}
+
 // Get all needed DOM elements
 const addBtn = document.getElementById("add_employee");
+const grossBtn = document.getElementById("gross_income");
 
 // Buttons' event listeners
 addBtn.addEventListener("click", fetchEmployee);
+grossBtn.addEventListener("click", grossIncome);
